@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      #main_div{border:solid red 2px}
+      p{font-weight: bold}
+      #weight_kilograms{width: 250px}
+      #weight_in_pounds{width: 250px}
+      #height_individuals_meters{width: 250px}
+      #height_individual_cm{width: 250px}
+      #button_BMI{background-color: red;font-weight: bolder}
+    </style>
+</head>
+<body>
+<div id="main_div">
+  <p>
+    BMI calculator
+  </p>
+  <h3>
+    Weight in kilograms(kg)
+    <input placeholder="please input your weight in kilograms" type="text" id="weight_kilograms">
+  </h3>
+  <h3>
+    Conversion of weight from pounds(lb) to kilograms(kg)
+    <input placeholder="please input your weight in pounds" type="text" id="weight_in_pounds">
+    <button id="button lb to kg">
+      Click to convert weight from pounds to kgs
+    </button>
+  </h3>
+  <h3>
+    Height of individual in meters(m)
+    <input placeholder="please input your height in meters" type="text" id="height_individuals_meters">
+  </h3>
+  <h3>
+    Conversion of height from cm to meters(m)
+    <input placeholder="please input your height in cm" type="text" id="height_individual_cm">
+    <button id="button cm to m">
+      Click to convert height from cm to meters
+    </button>
+  </h3>
+  <button id="button_BMI">
+    Calculate BMI button
+  </button>
+  <p id="result_BMI">
+  </p>
+</div>
+<script>
+  let access_weight_kilograms=document.getElementById("weight_kilograms");
+  let access_weight_pounds=document.getElementById("weight_in_pounds");
+  let access_height_meters=document.getElementById("height_individuals_meters");
+  let access_height_cm=document.getElementById("height_individual_cm");
+  let access_button_for_conversion_of_weight_from_pounds_to_kgs=document.getElementById("button lb to kg");
+  let access_button_for_conversion_of_height_from_cm_to_meters=document.getElementById("button cm to m");
+  let main_button_access_BMI=document.getElementById("button_BMI");
+  let main_result_box=document.getElementById("result_BMI")
+
+  access_button_for_conversion_of_weight_from_pounds_to_kgs.addEventListener("click",function(){
+    let value_of_weight_pounds=access_weight_pounds.value;
+    let value_of_weight_kgs=(value_of_weight_pounds/2.21);
+    access_weight_kilograms.value=value_of_weight_kgs;
+  });
+
+  access_button_for_conversion_of_height_from_cm_to_meters.addEventListener("click",function(){
+    let value_of_height_cm=access_height_cm.value;
+    let value_of_height_meters=value_of_height_cm*0.01;
+    access_height_meters.value=value_of_height_meters;
+  })
+
+  main_button_access_BMI.addEventListener("click",function(){
+    let value_of_weight_kgs=parseInt(access_weight_kilograms.value);
+    let value_of_height_meters=access_height_meters.value;
+    window.alert(value_of_height_meters);
+    let BMI_result=(value_of_weight_kgs/(value_of_height_meters*value_of_height_meters));
+    main_result_box.innerHTML=BMI_result;
+  })
+
+
+</script>
+</body>
+</html>
